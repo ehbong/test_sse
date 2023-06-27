@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SSE Event Receiver</title>
+</head>
+<body>
+    <script>
+        const eventSource = new EventSource("http://127.0.0.1:8000/events");
+
+        eventSource.onmessage = function (event) {
+            console.log("Received event:", event.data);
+        };
+
+        eventSource.onerror = function (error) {
+            console.error("EventSource error:", error);
+        };
+    </script>
+</body>
+</html>
